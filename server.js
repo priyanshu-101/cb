@@ -16,11 +16,10 @@ app.use(cors());
 
 // Set up MySQL connection
 const db = mysql.createConnection({
-  host: 'http://bfguvictib4akz1tjfoa-mysql.services.clever-cloud.com',
-  user: 'uuysgzzevec0xugh',
-  password: 'AMgTm7oJh6Zn70AjleXr',
-  database: 'bfguvictib4akz1tjfoa',
-
+  host: process.env.DB_HOST || 'bfguvictib4akz1tjfoa-mysql.services.clever-cloud.com',
+  user: process.env.DB_USER || 'uuysgzzevec0xugh',
+  password: process.env.DB_PASSWORD || 'AMgTm7oJh6Zn70AjleXr', 
+  database: process.env.DB_NAME || 'bfguvictib4akz1tjfoa'  
 });
 
 db.connect(err => {
